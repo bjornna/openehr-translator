@@ -1,0 +1,605 @@
+archetype (adl_version=1.4)
+	openEHR-EHR-EVALUATION.ipss_score.v1
+
+concept
+	[at0000]	-- IPSS Skjema
+language
+	original_language = <[ISO_639-1::nb]>
+	translations = <
+		["no"] = <
+			language = <[ISO_639-1::no]>
+			author = <
+				["name"] = <"?">
+			>
+		>
+	>
+description
+	original_author = <
+		["name"] = <"Bjørn Næss">
+		["organisation"] = <"DIPS ASA">
+		["email"] = <"bna@dips.no">
+		["date"] = <"21.09.2012">
+	>
+	details = <
+		["no"] = <
+			language = <[ISO_639-1::no]>
+			purpose = <"*(nb)">
+			use = <"*(nb)">
+			misuse = <"*(nb)">
+			copyright = <"*(nb)">
+		>
+		["nb"] = <
+			language = <[ISO_639-1::nb]>
+			purpose = <"For å definere score for vannlatningsproblemer">
+			use = <"Pasienten fyller selv ut ">
+			keywords = <"prostata", ...>
+			misuse = <"Ingen spesielle ">
+			copyright = <"">
+		>
+	>
+	lifecycle_state = <"Initial">
+	other_contributors = <>
+	other_details = <
+		["MD5-CAM-1.0.1"] = <"CB7D4EF5DB2020B711DF963C28AF6237">
+	>
+
+definition
+	EVALUATION[at0000] matches {	-- IPSS Skjema
+		data matches {
+			ITEM_TREE[at0001] matches {	-- Tree
+				items cardinality matches {0..*; unordered} matches {
+					ELEMENT[at0002] occurrences matches {0..1} matches {	-- I løpet av den siste måned, hvor ofte har du hatt følelsen av at blæren ikke er blitt fullstendig tømt etter avsluttet vannlating?
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0009, 	-- Aldri
+									at0010, 	-- Mindre enn 1 av 5 ganger
+									at0011, 	-- Minde enn halvparten av gangene
+									at0012, 	-- Ca. halvparten av gangene
+									at0013, 	-- Mer enn halvparten av gangene
+									at0014]	-- Nesten alltid
+								}
+							}
+						}
+					}
+					ELEMENT[at0003] occurrences matches {0..1} matches {	-- I løpet av den siste måned, hvor ofte har du måttet late vannet på nytt mindre enn 2 timer etter forrige vannlating?
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0015, 	-- Aldri
+									at0016, 	-- Mindre enn 1 av 5 ganger
+									at0017, 	-- Minde enn halvparten av gangene
+									at0018, 	-- Ca. halvparten av gangene
+									at0019, 	-- Mer enn halvparten av gangene
+									at0020]	-- Nesten alltid
+								}
+							}
+						}
+					}
+					ELEMENT[at0004] occurrences matches {0..1} matches {	-- I løpet av den siste måned, hvor ofte har du måttet stoppe og starte mens du lot vannet?
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0021, 	-- Aldri
+									at0022, 	-- Mindre enn 1 av 5 ganger
+									at0023, 	-- Minde enn halvparten av gangene
+									at0024, 	-- Ca. halvparten av gangene
+									at0025, 	-- Mer enn halvparten av gangene
+									at0026]	-- Nesten alltid
+								}
+							}
+						}
+					}
+					ELEMENT[at0005] occurrences matches {0..1} matches {	-- I løpet av den siste måned, hvor ofte synes du det har vært vanskelig å utsette vannlatingen?
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0027, 	-- Aldri
+									at0028, 	-- Mindre enn 1 av 5 ganger
+									at0029, 	-- Minde enn halvparten av gangene
+									at0030, 	-- Ca. halvparten av gangene
+									at0031, 	-- Mer enn halvparten av gangene
+									at0032]	-- Nesten alltid
+								}
+							}
+						}
+					}
+					ELEMENT[at0006] occurrences matches {0..1} matches {	-- I løpet av den siste måned, hvor ofte har du hatt svak urinstråle?
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0033, 	-- Aldri
+									at0034, 	-- Mindre enn 1 av 5 ganger
+									at0035, 	-- Minde enn halvparten av gangene
+									at0036, 	-- Ca. halvparten av gangene
+									at0037, 	-- Mer enn halvparten av gangene
+									at0038]	-- Nesten alltid
+								}
+							}
+						}
+					}
+					ELEMENT[at0007] occurrences matches {0..1} matches {	-- I løpet av den siste måned, hvor ofte har du måttet trykke eller presse for å late vannet?
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0039, 	-- Aldri
+									at0040, 	-- Mindre enn 1 av 5 ganger
+									at0041, 	-- Minde enn halvparten av gangene
+									at0042, 	-- Ca. halvparten av gangene
+									at0043, 	-- Mer enn halvparten av gangene
+									at0044]	-- Nesten alltid
+								}
+							}
+						}
+					}
+					ELEMENT[at0008] occurrences matches {0..1} matches {	-- I løpet av den siste måned, hvor mange ganger har du vanligvis måttet stå opp i løpet av natten for å late vannet?
+						value matches {
+							DV_CODED_TEXT matches {
+								defining_code matches {
+									[local::
+									at0045, 	-- Ingen
+									at0046, 	-- 1 gang
+									at0047, 	-- 2 ganger
+									at0048, 	-- 3 ganger
+									at0049, 	-- 4 ganger
+									at0050]	-- 5 ganger
+								}
+							}
+						}
+					}
+					ELEMENT[at0053] occurrences matches {0..1} matches {	-- Kommentar
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+					ELEMENT[at0051] occurrences matches {0..1} matches {	-- Total IPSS-Score (Sum)
+						value matches {
+							DV_TEXT matches {*}
+						}
+					}
+				}
+			}
+		}
+	}
+
+ontology
+	term_definitions = <
+		["no"] = <
+			items = <
+				["at0000"] = <
+					text = <"IPSS Skjema">
+					description = <"*IPSS, Internasjonal prostata-symptomskår(nb)">
+				>
+				["at0001"] = <
+					text = <"*Tree(nb)">
+					description = <"*@ internal @(nb)">
+				>
+				["at0002"] = <
+					text = <"*I løpet av den siste måned, hvor ofte har du hatt følelsen av at blæren ikke er blitt fullstendig tømt etter avsluttet vannlating?(nb)">
+					description = <"**(nb)">
+				>
+				["at0003"] = <
+					text = <"*I løpet av den siste måned, hvor ofte har du måttet late vannet på nytt mindre enn 2 timer etter forrige vannlating?(nb)">
+					description = <"**(nb)">
+				>
+				["at0004"] = <
+					text = <"*I løpet av den siste måned, hvor ofte har du måttet stoppe og starte mens du lot vannet?(nb)">
+					description = <"**(nb)">
+				>
+				["at0005"] = <
+					text = <"*I løpet av den siste måned, hvor ofte synes du det har vært vanskelig å utsette vannlatingen?(nb)">
+					description = <"**(nb)">
+				>
+				["at0006"] = <
+					text = <"*I løpet av den siste måned, hvor ofte har du hatt svak urinstråle?(nb)">
+					description = <"**(nb)">
+				>
+				["at0007"] = <
+					text = <"*I løpet av den siste måned, hvor ofte har du måttet trykke eller presse for å late vannet?(nb)">
+					description = <"**(nb)">
+				>
+				["at0008"] = <
+					text = <"*I løpet av den siste måned, hvor mange ganger har du vanligvis måttet stå opp i løpet av natten for å late vannet?(nb)">
+					description = <"**(nb)">
+				>
+				["at0009"] = <
+					text = <"*Aldri(nb)">
+					description = <"**(nb)">
+				>
+				["at0010"] = <
+					text = <"*Mindre enn 1 av 5 ganger(nb)">
+					description = <"**(nb)">
+				>
+				["at0011"] = <
+					text = <"*Minde enn halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0012"] = <
+					text = <"*Ca. halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0013"] = <
+					text = <"*Mer enn halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0014"] = <
+					text = <"*Nesten alltid(nb)">
+					description = <"**(nb)">
+				>
+				["at0015"] = <
+					text = <"*Aldri(nb)">
+					description = <"**(nb)">
+				>
+				["at0016"] = <
+					text = <"*Mindre enn 1 av 5 ganger(nb)">
+					description = <"**(nb)">
+				>
+				["at0017"] = <
+					text = <"*Minde enn halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0018"] = <
+					text = <"*Ca. halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0019"] = <
+					text = <"*Mer enn halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0020"] = <
+					text = <"*Nesten alltid(nb)">
+					description = <"**(nb)">
+				>
+				["at0021"] = <
+					text = <"*Aldri(nb)">
+					description = <"**(nb)">
+				>
+				["at0022"] = <
+					text = <"*Mindre enn 1 av 5 ganger(nb)">
+					description = <"**(nb)">
+				>
+				["at0023"] = <
+					text = <"*Minde enn halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0024"] = <
+					text = <"*Ca. halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0025"] = <
+					text = <"*Mer enn halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0026"] = <
+					text = <"*Nesten alltid(nb)">
+					description = <"**(nb)">
+				>
+				["at0027"] = <
+					text = <"*Aldri(nb)">
+					description = <"**(nb)">
+				>
+				["at0028"] = <
+					text = <"*Mindre enn 1 av 5 ganger(nb)">
+					description = <"**(nb)">
+				>
+				["at0029"] = <
+					text = <"*Minde enn halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0030"] = <
+					text = <"*Ca. halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0031"] = <
+					text = <"*Mer enn halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0032"] = <
+					text = <"*Nesten alltid(nb)">
+					description = <"**(nb)">
+				>
+				["at0033"] = <
+					text = <"*Aldri(nb)">
+					description = <"**(nb)">
+				>
+				["at0034"] = <
+					text = <"*Mindre enn 1 av 5 ganger(nb)">
+					description = <"**(nb)">
+				>
+				["at0035"] = <
+					text = <"*Minde enn halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0036"] = <
+					text = <"*Ca. halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0037"] = <
+					text = <"*Mer enn halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0038"] = <
+					text = <"*Nesten alltid(nb)">
+					description = <"**(nb)">
+				>
+				["at0039"] = <
+					text = <"*Aldri(nb)">
+					description = <"**(nb)">
+				>
+				["at0040"] = <
+					text = <"*Mindre enn 1 av 5 ganger(nb)">
+					description = <"**(nb)">
+				>
+				["at0041"] = <
+					text = <"*Minde enn halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0042"] = <
+					text = <"*Ca. halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0043"] = <
+					text = <"*Mer enn halvparten av gangene(nb)">
+					description = <"**(nb)">
+				>
+				["at0044"] = <
+					text = <"*Nesten alltid(nb)">
+					description = <"**(nb)">
+				>
+				["at0045"] = <
+					text = <"*Ingen(nb)">
+					description = <"**(nb)">
+				>
+				["at0046"] = <
+					text = <"*1 gang(nb)">
+					description = <"**(nb)">
+				>
+				["at0047"] = <
+					text = <"*2 ganger(nb)">
+					description = <"**(nb)">
+				>
+				["at0048"] = <
+					text = <"*3 ganger(nb)">
+					description = <"**(nb)">
+				>
+				["at0049"] = <
+					text = <"*4 ganger(nb)">
+					description = <"**(nb)">
+				>
+				["at0050"] = <
+					text = <"*5 ganger(nb)">
+					description = <"**(nb)">
+				>
+				["at0051"] = <
+					text = <"*Total IPSS-Score (Sum)(nb)">
+					description = <"**(nb)">
+				>
+				["at0053"] = <
+					text = <"*Kommentar(nb)">
+					description = <"**(nb)">
+				>
+			>
+		>
+		["nb"] = <
+			items = <
+				["at0000"] = <
+					text = <"IPSS Skjema">
+					description = <"IPSS, Internasjonal prostata-symptomskår">
+				>
+				["at0001"] = <
+					text = <"Tree">
+					description = <"@ internal @">
+				>
+				["at0002"] = <
+					text = <"I løpet av den siste måned, hvor ofte har du hatt følelsen av at blæren ikke er blitt fullstendig tømt etter avsluttet vannlating?">
+					description = <"*">
+				>
+				["at0003"] = <
+					text = <"I løpet av den siste måned, hvor ofte har du måttet late vannet på nytt mindre enn 2 timer etter forrige vannlating?">
+					description = <"*">
+				>
+				["at0004"] = <
+					text = <"I løpet av den siste måned, hvor ofte har du måttet stoppe og starte mens du lot vannet?">
+					description = <"*">
+				>
+				["at0005"] = <
+					text = <"I løpet av den siste måned, hvor ofte synes du det har vært vanskelig å utsette vannlatingen?">
+					description = <"*">
+				>
+				["at0006"] = <
+					text = <"I løpet av den siste måned, hvor ofte har du hatt svak urinstråle?">
+					description = <"*">
+				>
+				["at0007"] = <
+					text = <"I løpet av den siste måned, hvor ofte har du måttet trykke eller presse for å late vannet?">
+					description = <"*">
+				>
+				["at0008"] = <
+					text = <"I løpet av den siste måned, hvor mange ganger har du vanligvis måttet stå opp i løpet av natten for å late vannet?">
+					description = <"*">
+				>
+				["at0009"] = <
+					text = <"Aldri">
+					description = <"*">
+				>
+				["at0010"] = <
+					text = <"Mindre enn 1 av 5 ganger">
+					description = <"*">
+				>
+				["at0011"] = <
+					text = <"Minde enn halvparten av gangene">
+					description = <"*">
+				>
+				["at0012"] = <
+					text = <"Ca. halvparten av gangene">
+					description = <"*">
+				>
+				["at0013"] = <
+					text = <"Mer enn halvparten av gangene">
+					description = <"*">
+				>
+				["at0014"] = <
+					text = <"Nesten alltid">
+					description = <"*">
+				>
+				["at0015"] = <
+					text = <"Aldri">
+					description = <"*">
+				>
+				["at0016"] = <
+					text = <"Mindre enn 1 av 5 ganger">
+					description = <"*">
+				>
+				["at0017"] = <
+					text = <"Minde enn halvparten av gangene">
+					description = <"*">
+				>
+				["at0018"] = <
+					text = <"Ca. halvparten av gangene">
+					description = <"*">
+				>
+				["at0019"] = <
+					text = <"Mer enn halvparten av gangene">
+					description = <"*">
+				>
+				["at0020"] = <
+					text = <"Nesten alltid">
+					description = <"*">
+				>
+				["at0021"] = <
+					text = <"Aldri">
+					description = <"*">
+				>
+				["at0022"] = <
+					text = <"Mindre enn 1 av 5 ganger">
+					description = <"*">
+				>
+				["at0023"] = <
+					text = <"Minde enn halvparten av gangene">
+					description = <"*">
+				>
+				["at0024"] = <
+					text = <"Ca. halvparten av gangene">
+					description = <"*">
+				>
+				["at0025"] = <
+					text = <"Mer enn halvparten av gangene">
+					description = <"*">
+				>
+				["at0026"] = <
+					text = <"Nesten alltid">
+					description = <"*">
+				>
+				["at0027"] = <
+					text = <"Aldri">
+					description = <"*">
+				>
+				["at0028"] = <
+					text = <"Mindre enn 1 av 5 ganger">
+					description = <"*">
+				>
+				["at0029"] = <
+					text = <"Minde enn halvparten av gangene">
+					description = <"*">
+				>
+				["at0030"] = <
+					text = <"Ca. halvparten av gangene">
+					description = <"*">
+				>
+				["at0031"] = <
+					text = <"Mer enn halvparten av gangene">
+					description = <"*">
+				>
+				["at0032"] = <
+					text = <"Nesten alltid">
+					description = <"*">
+				>
+				["at0033"] = <
+					text = <"Aldri">
+					description = <"*">
+				>
+				["at0034"] = <
+					text = <"Mindre enn 1 av 5 ganger">
+					description = <"*">
+				>
+				["at0035"] = <
+					text = <"Minde enn halvparten av gangene">
+					description = <"*">
+				>
+				["at0036"] = <
+					text = <"Ca. halvparten av gangene">
+					description = <"*">
+				>
+				["at0037"] = <
+					text = <"Mer enn halvparten av gangene">
+					description = <"*">
+				>
+				["at0038"] = <
+					text = <"Nesten alltid">
+					description = <"*">
+				>
+				["at0039"] = <
+					text = <"Aldri">
+					description = <"*">
+				>
+				["at0040"] = <
+					text = <"Mindre enn 1 av 5 ganger">
+					description = <"*">
+				>
+				["at0041"] = <
+					text = <"Minde enn halvparten av gangene">
+					description = <"*">
+				>
+				["at0042"] = <
+					text = <"Ca. halvparten av gangene">
+					description = <"*">
+				>
+				["at0043"] = <
+					text = <"Mer enn halvparten av gangene">
+					description = <"*">
+				>
+				["at0044"] = <
+					text = <"Nesten alltid">
+					description = <"*">
+				>
+				["at0045"] = <
+					text = <"Ingen">
+					description = <"*">
+				>
+				["at0046"] = <
+					text = <"1 gang">
+					description = <"*">
+				>
+				["at0047"] = <
+					text = <"2 ganger">
+					description = <"*">
+				>
+				["at0048"] = <
+					text = <"3 ganger">
+					description = <"*">
+				>
+				["at0049"] = <
+					text = <"4 ganger">
+					description = <"*">
+				>
+				["at0050"] = <
+					text = <"5 ganger">
+					description = <"*">
+				>
+				["at0051"] = <
+					text = <"Total IPSS-Score (Sum)">
+					description = <"*">
+				>
+				["at0053"] = <
+					text = <"Kommentar">
+					description = <"*">
+				>
+			>
+		>
+	>
