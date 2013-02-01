@@ -77,9 +77,9 @@ public class OpenEHRADLParser {
 		try {
 			archetype = parser.parse();
 		} catch (ParseException e) {
-			throw new ArcheTypeException(e);
+			throw new ArcheTypeException("Kunne ikke parse ADL fil. " + e.getMessage(), e);
 		} catch (Exception e) {
-			throw new ArcheTypeException(e);
+			throw new ArcheTypeException("Feil ved parsing ADL fil. " + e.getMessage(), e);
 		}
 
 	}

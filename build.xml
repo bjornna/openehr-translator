@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     25. sep. 2012 22:32:26                                                        
+
+     openehr-translator    
+     Translate OpenEHR archetype from a given language to a given language
+                   
+     bna                                                                
+     ====================================================================== -->
+<project name="openehr-translator" default="pack.uberjar">
+	<description>
+            Translate OpenEHR archetype from a given language to a given language
+    </description>
+
+	<!-- ================================= 
+          target: pack.uberjar              
+         ================================= -->
+	<target name="pack.uberjar" depends="depends" description="Packs a executable jar - uberjar">
+
+		<exec executable="cmd">
+			<arg value="/c" />
+			<arg value="mvn.bat assembly:assembly -DdescriptorId=jar-with-dependencies" />
+		</exec>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="depends">
+	</target>
+
+</project>

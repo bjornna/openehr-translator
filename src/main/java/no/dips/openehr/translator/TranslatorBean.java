@@ -39,8 +39,6 @@ public class TranslatorBean implements Translator {
 			archetype = parser.getArchetype(new FileInputStream(file));
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 			throw new ArcheTypeException(e);
 		} catch (ArcheTypeException e) {
 			e.printStackTrace();
@@ -53,8 +51,16 @@ public class TranslatorBean implements Translator {
 	public Archetype translate(String from, String to) {
 		log.info("Translate from:" + from + ", to:" + to);
 
-		translateOntology(from, to);
-		translatePurpose(from, to);
+		try {
+			translateOntology(from, to);
+		} catch (RuntimeException e) {
+			throw new ArcheTypeException("Could not translate ontology: " + e, e);
+		}
+		try {
+			translatePurpose(from, to);
+		} catch (RuntimeException e) {
+			throw new ArcheTypeException("Could not translate purpose:" + e, e);
+		}
 		emit();
 		return archetype;
 
@@ -81,10 +87,20 @@ public class TranslatorBean implements Translator {
 		CodeSetAccess codeSetAccess = new CodeSetAccessBean();
 		TerminologyService terminologyService = new TerminologyServiceBean(codeSetAccess);
 		ResourceDescriptionItem itemTo = getResourceDescriptionItem(to);
-		ResourceDescriptionItem copy = new ResourceDescriptionItem(itemTo.getLanguage(),
-				itemFrom.getPurpose(), itemFrom.getKeywords(), itemFrom.getUse(),
-				itemFrom.getMisuse(), itemFrom.getCopyright(), itemFrom.getOriginalResourceUri(),
-				itemFrom.getOtherDetails(), terminologyService);
+		if(itemTo == null){
+			throw new ArcheTypeException("Could not find language " + to + ", are you sure you added it in Archetype Editor");
+		}
+		final CodePhrase copyLanguage = itemTo.getLanguage();
+		final String copyPurpose = itemFrom.getPurpose();
+		final List<String> copyKeywords = itemFrom.getKeywords();
+		final String copyUse = itemFrom.getUse();
+		final String copyMiuse = itemFrom.getMisuse();
+		final String copyRight = itemFrom.getCopyright();
+		final Map<String, String> copyOrgResourceUri = itemFrom.getOriginalResourceUri();
+		final Map<String, String> copyOtherDetails = itemFrom.getOtherDetails();
+
+		ResourceDescriptionItem copy = new ResourceDescriptionItem(copyLanguage, copyPurpose, copyKeywords, copyUse,
+				copyMiuse, copyRight, copyOrgResourceUri, copyOtherDetails, terminologyService);
 		archetype.getDescription().getDetails().remove(itemTo);
 		archetype.getDescription().getDetails().add(copy);
 
@@ -109,8 +125,7 @@ public class TranslatorBean implements Translator {
 		for (OntologyDefinitions def : terms) {
 			log.debug("|-->" + def.getLanguage());
 			for (ArchetypeTerm term : def.getDefinitions()) {
-				log.debug("|---> " + term.getCode() + " : " + term.getText() + " : "
-						+ term.getDescription());
+				log.debug("|---> " + term.getCode() + " : " + term.getText() + " : " + term.getDescription());
 			}
 		}
 	}

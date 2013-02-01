@@ -1,5 +1,7 @@
 package no.dips.openehr.translator;
 
+import java.util.Arrays;
+
 public class ArcheTypeException extends RuntimeException {
 
 	/**
@@ -9,27 +11,32 @@ public class ArcheTypeException extends RuntimeException {
 
 	public ArcheTypeException() {
 		super();
+
+	}
+
+	public ArcheTypeException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
 	}
 
-	public ArcheTypeException(String arg0, Throwable arg1, boolean arg2, boolean arg3) {
-		super(arg0, arg1, arg2, arg3);
+	public ArcheTypeException(String message, Throwable cause) {
+		super(message, cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public ArcheTypeException(String arg0, Throwable arg1) {
-		super(arg0, arg1);
+	public ArcheTypeException(String message) {
+		super(message);
 		// TODO Auto-generated constructor stub
 	}
 
-	public ArcheTypeException(String arg0) {
-		super(arg0);
+	public ArcheTypeException(Throwable cause) {
+		super(cause);
 		// TODO Auto-generated constructor stub
 	}
 
-	public ArcheTypeException(Throwable arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
+	@Override
+	public String toString() {
+		return "ArcheTypeException [Message=" + getMessage() + ", Cause=" + getCause();
 	}
 
 }
