@@ -22,6 +22,20 @@
 			<arg value="mvn.bat assembly:assembly -DdescriptorId=jar-with-dependencies" />
 		</exec>
 	</target>
+	<target name="install.lib" description="Install necessary libs to local repo">
+			<exec executable="cmd">
+			<arg value="/c" />
+			<arg value="mvn.bat install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar  -Dfile=lib/adl-parser-1.0.3-SNAPSHOT.jar -DgroupId=openehr -DartifactId=adl-parser -Dversion=1.0.3-SNAPSHOT" />
+		</exec>
+<exec executable="cmd">
+			<arg value="/c" />
+			<arg value="mvn.bat install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar  -Dfile=lib/adl-serializer-1.0.3-SNAPSHOT.jar -DgroupId=openehr -DartifactId=adl-serializer -Dversion=1.0.3-SNAPSHOT" />
+		</exec>
+<exec executable="cmd">
+			<arg value="/c" />
+			<arg value="mvn.bat install:install-file -DlocalRepositoryPath=repo -DcreateChecksum=true -Dpackaging=jar  -Dfile=lib/openehr-rm-core-1.0.3-SNAPSHOT.jar -DgroupId=openehr -DartifactId=openehr-rm-core -Dversion=1.0.3-SNAPSHOT" />
+		</exec>		
+	</target>
 
 	<!-- - - - - - - - - - - - - - - - - - 
           target: depends                      

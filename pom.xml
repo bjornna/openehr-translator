@@ -13,32 +13,43 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-
+<repositories>
+<repository>
+    <id>repo</id>
+    <releases>
+        <enabled>true</enabled>
+        <checksumPolicy>ignore</checksumPolicy>
+    </releases>
+    <snapshots>
+        <enabled>false</enabled>
+    </snapshots>
+    <url>file://${project.basedir}/repo</url>
+</repository>
+</repositories>
 	<dependencies>
+	
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>adl-parser</artifactId>
+			<version>1.0.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>openehr-rm-core</artifactId>
+			<version>1.0.3-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>openehr</groupId>
+			<artifactId>adl-serializer</artifactId>
+			<version>1.0.3-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>openehr</groupId>
-			<artifactId>adl-parser</artifactId>
-			<version>1.0.2-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>openehr</groupId>
-			<artifactId>openehr-rm-core</artifactId>
 
-			<version>1.0.1</version>
-
-		</dependency>
-
-		<dependency>
-			<groupId>openehr</groupId>
-			<artifactId>adl-serializer</artifactId>
-			<version>1.0.1</version>
-		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
