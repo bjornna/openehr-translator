@@ -59,7 +59,8 @@ public class TranslatorSaver {
 	}
 
 	private void moveOriginalToBackUp() {
-		File destFile = new File(backUpDir, file.getName());
+		File destFile = new File(backUpDir, file.getName() + ".adlx");
+		
 		try {
 			copyFileFiles(file, destFile);
 
