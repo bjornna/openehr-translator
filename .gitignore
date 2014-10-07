@@ -23,3 +23,4 @@ src/main/webapp/WEB-INF/lib/*
 /target
 /.settings
 *.classpath
+.classpath

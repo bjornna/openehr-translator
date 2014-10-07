@@ -24,7 +24,7 @@ public class LangExtractTestCase {
 	public void setUp() throws Exception {
 	}
 
-	@Test
+	//@Test
 	public void test() throws FileNotFoundException {
 		String file = path + "/cluster/openEHR-EHR-CLUSTER.funn.v1.adl";
 		OpenEHRADLParser parser = new OpenEHRADLParser();
